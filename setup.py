@@ -3,7 +3,7 @@
 # This file is part of pygal
 #
 # A python svg graph plotting library
-# Copyright © 2012-2014 Kozea
+# Copyright © 2012-2015 Kozea
 #
 # This library is free software: you can redistribute it and/or modify it under
 # the terms of the GNU Lesser General Public License as published by the Free
@@ -28,7 +28,7 @@ from setuptools.command.test import test as TestCommand
 class PyTest(TestCommand):
     def finalize_options(self):
         TestCommand.finalize_options(self)
-        self.test_args = []
+        self.test_args = ['-x', 'build/lib/pygal']
         self.test_suite = True
 
     def run_tests(self):
@@ -64,8 +64,8 @@ setup(
         "svg", "chart", "graph", "diagram", "plot", "histogram", "kiviat"],
     tests_require=["pytest", "pyquery", "flask", "cairosvg"],
     cmdclass={'test': PyTest},
-    package_data={'pygal': ['css/*', 'graph/*.svg']},
-    extra_requires={
+    package_data={'pygal': ['css/*', 'graph/maps/*.svg']},
+    extras_require={
         'lxml': ['lxml'],
         'png': ['cairosvg']
 

@@ -3,7 +3,7 @@
 # This file is part of pygal
 #
 # A python svg graph plotting library
-# Copyright © 2012-2014 Kozea
+# Copyright © 2012-2015 Kozea
 #
 # This library is free software: you can redistribute it and/or modify it under
 # the terms of the GNU Lesser General Public License as published by the Free
@@ -58,4 +58,5 @@ else:
     add_w_builtin()
     app.wsgi_app = WdbMiddleware(app.wsgi_app, start_disabled=True)
 
-app.run(debug=True, threaded=True, host='0.0.0.0', port=12221)
+if __name__ == '__main__':
+    app.run(debug=True, threaded=True, host='0.0.0.0', port=12221)
